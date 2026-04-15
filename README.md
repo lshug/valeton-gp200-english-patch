@@ -21,6 +21,14 @@ uv sync
 
 ## Usage
 
+### tl;dr
+```bash
+uv run poe scan "GP-200LT Firmware V1.8.0.bin"
+uv run poe translate translations_gp200.json
+uv run poe patch -i "GP-200LT Firmware V1.8.0.bin" -t translations_gp200.json
+# The patched firmware will be saved as "GP-200LT Firmware V1.8.0-patched.bin"
+```
+
 ### Scanning Firmware
 
 To extract Chinese strings from a firmware binary and generate an empty translations JSON template:
@@ -82,7 +90,8 @@ poe typecheck   # Run type checker
 poe test        # Run all checks
 ```
 
+## License
 
-Since I based some parts on the GP-50, this project inherits the GPL license.
+Since I based some parts on the [naturalfinder-os/valeton-english-patch](https://github.com/naturalfinder-os/valeton-english-patch), this project inherits the GPL license.
 [GNU General Public License v3 (GPLv3)](LICENSE.md).
 
