@@ -1,5 +1,7 @@
 # Valeton GP-200 Firmware English Patch
 
+[__Use online through Google Colab__](https://colab.research.google.com/drive/18P1juCq87BcrpVD1zcTh_KQTkDltwhRs?usp=sharing)
+
 This is a patch for the Chinese-only versions Valeton GP-200 to add English language support. On such units, the language cannot be switched to English regardless of what firmware is uploaded. The solution is to do string-replacements to the firmware, so that Chinese-language strings are replaced with English-language ones.
 
 This is already [done for GP-50 by naturalfinder-os](https://github.com/naturalfinder-os/valeton-english-patch). However, unlike GP-50, GP-200 has checksumming logic for the firmware, as well as some weird handling of number strings. Since the GP-50 patch was in powershell, I also replicated GP-50 patching logic here for portability, but I haven't tested that part out.
