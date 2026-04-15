@@ -1,0 +1,58 @@
+[project]
+name = "vlaeton-gp200-english-patch"
+version = "0.1.0"
+description = "A tool for patching the Chinese-only firmware of Valeton GP200/LT/JR with English-language strings."
+requires-python = ">=3.13"
+dependencies = [
+    "mypy>=1.20.1",
+    "poethepoet>=0.44.0",
+    "ruff>=0.15.10",
+]
+
+[tool.mypy]
+strict = true
+python_version = "3.13"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[tool.ruff]
+target-version = "py313"
+line-length = 200
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # Pyflakes
+    "I",      # isort
+    "N",      # pep8-naming
+    "UP",     # pyupgrade
+    "B",      # flake8-bugbear
+    "C4",     # flake8-comprehensions
+    "PIE",    # flake8-pie
+    "RUF",    # Ruff-specific rules
+]
+ignore = ["RUF001"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["valeton_gp200_patch"]
+
+[tool.poe.tasks]
+uv = "uv"
+lint = "ruff check ."
+format = { sequence = ["uv run ruff format .", "uv run ruff check . --fix"], help = "Format code with ruff" }
+typecheck = "uv run mypy . --strict"
+test = { sequence = ["lint", "typecheck"], help = "Run all checks (lint, typecheck)" }
+scan = { cmd = "uv run valeton_gp200_english_patch/patch_firmware.py --scan", help = "Scan firmware and generate translations template JSON" }
+patch = { cmd = "uv run valeton_gp200_english_patch/patch_firmware.py", help = "Patch firmware (run 'poe patch --help' for options)" }
+translate = { cmd = "uv run valeton_gp200_english_patch/generate_translations.py", help = "Apply translations to generated JSON (takes input and optional output file)" }
+
