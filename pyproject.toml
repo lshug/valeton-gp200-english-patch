@@ -1,7 +1,7 @@
 [project]
-name = "vlaeton-gp200-english-patch"
+name = "valeton-gp200-english-patch"
 version = "0.1.0"
-description = "A tool for patching the Chinese-only firmware of Valeton GP200/LT/JR with English-language strings."
+description = "A tool for patching the firmware of Chinese-only version of Valeton GP200/LT/JR with English-language strings."
 requires-python = ">=3.13"
 dependencies = [
     "mypy>=1.20.1",
@@ -41,10 +41,7 @@ select = [
     "PIE",    # flake8-pie
     "RUF",    # Ruff-specific rules
 ]
-ignore = ["RUF001"]
-
-[tool.ruff.lint.isort]
-known-first-party = ["valeton_gp200_patch"]
+ignore = ["RUF001"]  # Ignore "RUF001: ambiguous-unicode-character-string" since the pre-translation strings contain CJK equivalents of some ASCII punctuation characters
 
 [tool.poe.tasks]
 uv = "uv"

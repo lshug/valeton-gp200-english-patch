@@ -196,7 +196,7 @@ wheels = [
 ]
 
 [[package]]
-name = "vlaeton-gp200-english-patch"
+name = "valeton-gp200-english-patch"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
