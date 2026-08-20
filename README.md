@@ -1,5 +1,7 @@
 # Valeton GP-200 Firmware English Patch
 
+*Note: this project will soon be deprecated, now that [tntexplosivesltd](https://github.com/tntexplosivesltd) has figured out a way to unlock the full multi-language support on Chinese-locked units. Contact him on [reddit](https://www.reddit.com/user/tntexplosivesltd), [Facebook](https://www.facebook.com/profile.php?id=61588591959955), or [Github](https://github.com/tntexplosivesltd) to enroll in his beta test. Will update the message here again after the patch is out of beta and integrated into the [GP-200 patcher HTML project](https://github.com/tntexplosivesltd/gp200-patcher).*
+
 [__Use online through Google Colab__](https://colab.research.google.com/drive/18P1juCq87BcrpVD1zcTh_KQTkDltwhRs?usp=sharing)
 
 This is a patch for the Chinese-only versions Valeton GP-200 to add English language support. On such units, the language cannot be switched to English regardless of what firmware is uploaded. The solution is to do string-replacements to the firmware, so that Chinese-language strings are replaced with English-language ones.
